@@ -100,11 +100,16 @@ This is what each variable in our dataset means:
 
 ### ML Forecasting Methods
 ---
+**Baseline Models**
+- Our first baseline model is a Naive model. Since we intend to provide short-term forecasts, our first baseline model will assume that the predicted value at time `t` will be equal to the actual value of demand at time `t-1`.
+- In our second baseline model we extract the trend and seasonalities from our training data and use them to forecast demand.
+
 
 
 ### Results
 ---
-
+- Baseline Model 1: MSE = 5,933,717
+- Baseline Model 2: MSE = 11,349,103
 
 ### Limitations
 ---
