@@ -108,8 +108,8 @@ This is what each variable in our dataset means:
 
 ### Results
 ---
-- Baseline Model 1: MSE = 5,933,717
-- Baseline Model 2: MSE = 11,349,103
+- Baseline Model 1: MAPE = 0.298
+- Baseline Model 2: MAPE = 0.58 (0.3 excluding COVID test data)
 
 ### Limitations
 ---
