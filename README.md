@@ -6,12 +6,23 @@ The growing awareness of the importance of exercise alongside the increasing rec
 However, not everyone willing to partake in bicycle commuting either owns or desires to own a bicycle.
 This has led to the creation of several bike-sharing enterprises, facilitating convenient and affordable bike rentals for users.
 
-Since the bicycle commuting culture is still evolving, accurately estimating the demand for bikes on any given day presents a formidable challenge for bike-sharing companies. The primary objective of this project is to gain comprehensive insights into the complexities associated with forecasting bike demand, while also comparing the efficacy of diverse machine learning-based forecasting methodologies.
+Since the bicycle commuting culture is still evolving, accurately estimating the demand for bikes on any given day presents a formidable challenge for bike-sharing companies. The primary objective of this project is to gain comprehensive insights into the complexities associated with forecasting bike demand, while also comparing the performance of the following forecasting methods -
 
-By accurately predicting the demand for bikes on any given day, bike-sharing companies can optimize their operations, ensuring an adequate supply of bicycles at high-demand locations and periods. This proactive approach eliminates the frustration of potential riders facing unavailability, thus enhancing overall user experience and satisfaction.
+- [x] XGBoost
+- [x] ARIMA
+- [x] SARIMA
+- [ ] RNN
 
-This would ultimately serve as a catalyst for the growing trend of bicycle commuting, advancing the global movement towards sustainability.
+Baseline has been established using two methods -
 
+- Naïve Forecasting Method (forecasts equals the value of the last observation)
+- Seasonal Decomposition (extracting yearly and weekly seasonalities and combining them to forecast)
+
+The jupyter notebooks in this repository have been labelled stepwise and should be followed in order -
+
+- step_1_data_preparation.ipynb
+- step_2_exploratory_data_analysis.ipynb
+- step_3_modeling.ipynb
 
 
 ### Dependencies
@@ -27,10 +38,8 @@ Python Libraries (please refer requirements.txt):
 - matplotlib
 - seaborn
 - plotly
-
-
-### Getting Started
----
+- xgboost
+- joblib
 
 
 ### Dataset Description
@@ -101,17 +110,34 @@ This is what each variable in our dataset means:
 ### ML Forecasting Methods
 ---
 **Baseline Models**
-- Our first baseline model is a Naive model. Since we intend to provide short-term forecasts, our first baseline model will assume that the predicted value at time `t` will be equal to the actual value of demand at time `t-1`.
+- Our first baseline model is a Naïve model. Since we intend to provide short-term forecasts, our first baseline model will assume that the predicted value at time `t` will be equal to the actual value of demand at time `t-1`.
 - In our second baseline model we extract the trend and seasonalities from our training data and use them to forecast demand.
 
 
 
 ### Results
 ---
-- Baseline Model 1: MAPE = 0.298
-- Baseline Model 2: MAPE = 0.58 (0.3 excluding COVID test data)
+- Baseline Model 1 (Naïve model)
+	- MAPE = 0.278 %
+	- RMSE = 2710
 
-### Limitations
+- Baseline Model 2 (Seasonal decomposition based)
+	- MAPE = 0.304 %
+	- RMSE = 2672
+
+- XGBoost
+	- MAPE = 0.178 %
+	- RMSE = 1970
+
+- ARIMA
+	- MAPE = 
+	- RMSE = 
+
+- SARIMA
+	- MAPE = 
+	- RMSE = 
+
+### Next Steps
 ---
 
 
