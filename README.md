@@ -52,6 +52,9 @@ This has been moved under the "Data" folder.
 
 ### Results
 ---
+
+The best model amongst the ones tried so far is `XGBoost` - and by a huge margin.
+
 - **Baseline Model 1 (Naïve model)**
 	- MAPE = 0.278 %
 	- RMSE = 2710
