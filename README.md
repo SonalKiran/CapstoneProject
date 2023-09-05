@@ -61,20 +61,32 @@ This has been moved under the "Data" folder.
 	- RMSE = 2672
 
 - **XGBoost**
+
+    (`colsample_bytree`: 0.55, `learning_rate`: 0.24, `max_depth`: 2, `n_estimators`: 293, `reg_alpha`: 0.3)
 	- MAPE = 0.178 %
 	- RMSE = 1970
 
-- **ARIMA**
-	- MAPE = 
-	- RMSE = 
+- **ARIMA (1,0,7)**
+    
+    (data = `total_demand` differenced twice - 365,7)
+	- MAPE = 0.38 %
+	- RMSE = 3433
 
-- **SARIMA**
-	- MAPE = 
-	- RMSE = 
+- **SARIMA (4,0,0) (0,0,1,7)**
+    
+    (data = log of `total_demand` differenced once - 365)
+	- MAPE = 0.4 %
+	- RMSE = 3451
 
 ### Next Steps
 ---
+- There is a lot of repetitive code in this notebook, create classes/functions where possible and clean this notebook up
 
+- Investigate the outliers in bike rental demand data, check if the spikes in the data correspond to promotional events or any other such critical information which may help inform data preparation
+
+- Investigate if seasonal decomposition can be used effectively to remove multiple seasonalities (consider using [statsmodels-MSTL](https://www.statsmodels.org/dev/examples/notebooks/generated/mstl_decomposition.html)) from the data before employing (S)ARIMA
+
+- Explore RNNs like LSTM to forecast demand and compare with XGBoost
 
 ### Licensing, Authors, Acknowledgements
 ---
