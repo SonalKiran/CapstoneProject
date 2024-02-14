@@ -45,7 +45,7 @@ if st.sidebar.checkbox('Bike Rental Data'):
     # adding a time span filter
     target = st.selectbox('Choose a time frame', ['daily', 'weekly', 'monthly'])
     # loading data
-    file_path = f'data/{target}_avg_by_station.csv'
+    file_path = f'./data/{target}_avg_by_station.csv'
     df = load_data(file_path)
 
     # visualizing 'Average Bike Rental By Station' for the chosen time span on a map using pydeck library
@@ -119,7 +119,7 @@ if st.sidebar.checkbox('Bike Rental Data'):
     # visualizing the 'Average Total Bike Rental'
     st.markdown('**Average Total Bike Rental:**')
     # loading data
-    file_path_2 = f'data/{target}.csv'
+    file_path_2 = f'./data/{target}.csv'
     df_2 = load_data(file_path_2)
     df_2 = df_2.loc[:,['date', 'bike_counts']]
     df_2 = df_2.sort_values(by='date')
@@ -154,7 +154,7 @@ if st.sidebar.checkbox('Weather Data'):
     st.markdown('**Average Temperature By Month:**')
     # target = st.selectbox('Choose a time frame', ['daily', 'weekly', 'monthly'])
     # loading data
-    combined_data = load_combined_data('data/combined_data.csv')
+    combined_data = load_combined_data('./data/combined_data.csv')
     # preparing monthly average temperature data
     monthly_avg_temp = combined_data.groupby(combined_data.index.month)['temp_obs'].mean()
     monthly_avg_temp = monthly_avg_temp.to_frame().reset_index()
