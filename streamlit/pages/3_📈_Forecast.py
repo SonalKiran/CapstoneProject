@@ -34,7 +34,7 @@ def load_data(filename):
 if st.sidebar.checkbox('Baseline: Naïve Forecast'):
     st.markdown("##### <span style='color: #E65100'>Baseline Method: Naïve Forecast</span>", unsafe_allow_html=True)
     # loading data
-    combined_data = load_data('./data/combined_data.csv')
+    combined_data = load_data('streamlit/data/combined_data.csv')
     # creating a filter to select forecast period
     st.markdown('**Forecast Period:**')
     period = st.selectbox('Choose forecast period', ['1 day', '7 days', '30 days', '90 days'])
@@ -100,9 +100,9 @@ if st.sidebar.checkbox('XGBoost'):
     period_xgb = st.selectbox('Choose forecast period', ['1 day', '7 days', '30 days', '90 days'], key='period_xgb')
     n = int(period_xgb.split()[0])
     # loading the model
-    model = joblib.load('./models/xgb_gs_best_estimator.pkl')
+    model = joblib.load('streamlit/models/xgb_gs_best_estimator.pkl')
     # loading the data
-    combined_data_2 = load_data('./data/combined_data.csv')
+    combined_data_2 = load_data('streamlit/data/combined_data.csv')
     # preparing the data for the xgboost model
     combined_data_2['total_demand_lag_1'] = combined_data_2.total_demand.shift(periods=1, fill_value=0)
     combined_data_2['total_demand_lag_2'] = combined_data_2.total_demand.shift(periods=2, fill_value=0)

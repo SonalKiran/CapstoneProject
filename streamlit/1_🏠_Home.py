@@ -14,7 +14,7 @@ the demand of bicycles in Washington DC.</span>", unsafe_allow_html=True)
 st.markdown("##### <span style='color: #E65100'>Have fun 🎉!</span>", unsafe_allow_html=True)
 
 # adding gif
-file_ = open("./assets/bike_2_giphy.gif", "rb")
+file_ = open("streamlit/assets/bike_2_giphy.gif", "rb")
 contents = file_.read()
 data_url = base64.b64encode(contents).decode("utf-8")
 file_.close()
