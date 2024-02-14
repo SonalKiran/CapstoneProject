@@ -37,7 +37,7 @@ if st.sidebar.checkbox('Baseline: Naïve Forecast'):
     combined_data = load_data('streamlit/data/combined_data.csv')
     # creating a filter to select forecast period
     st.markdown('**Forecast Period:**')
-    period = st.selectbox('Choose forecast period', ['1 day', '7 days', '30 days', '90 days'])
+    period = st.selectbox('Choose forecast period', ['1 day', '7 days', '30 days', '90 days'], index=2)
     n = int(period.split()[0])
     # preparing the data and selecting data based on the period
     combined_data['forecast'] = combined_data['total_demand'].shift(1)
@@ -97,7 +97,7 @@ if st.sidebar.checkbox('XGBoost'):
     st.markdown("##### <span style='color: #E65100'>XGBoost - Our Best Performing Model</span>", unsafe_allow_html=True)
     st.markdown('**Forecast Period:**')
      # creating a filter to select forecast period
-    period_xgb = st.selectbox('Choose forecast period', ['1 day', '7 days', '30 days', '90 days'], key='period_xgb')
+    period_xgb = st.selectbox('Choose forecast period', ['1 day', '7 days', '30 days', '90 days'], key='period_xgb', index=2)
     n = int(period_xgb.split()[0])
     # loading the model
     model = joblib.load('streamlit/models/xgb_gs_best_estimator.pkl')
